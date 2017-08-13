@@ -1,0 +1,481 @@
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a{
+    color: #000;
+    text-decoration: none;
+}
+
+
+/*header*/
+header{
+    position: fixed;
+    left:0;
+    top:0;
+    height: 80px;
+    width: 100%;
+    z-index:1;
+    background: #f1f2f3;
+}
+header .logo{
+    background: url("../img/logo.png") no-repeat left center;
+    background-size:37px 37px;
+    float: left;
+    margin-left: 10px;
+    width: 104px;
+    height: 80px;
+    line-height: 80px;
+    padding-left: 50px;
+}
+header ul{
+    float: right;
+    margin-right: 10px;
+    position: relative;
+}
+header ul li{
+    float: left;
+    height: 80px;
+    line-height: 80px;
+}
+header ul li.active a{
+    color: orangered;
+}
+header ul li:nth-of-type(6){
+    display: block;
+    width: 100px;
+    height: 40px;
+    background: black;
+    text-align: center;
+    margin-top: 20px;
+    line-height:80px;
+    position: relative;
+    border-radius: 5px;
+}
+header ul li:nth-of-type(6) a{
+    color: #ffffff;
+    position: absolute;
+    left:18px;
+    top:-20px;
+}
+header ul li+li{
+    margin-left: 40px;
+}
+header ul .nav-list{
+    width: 32px;
+    height: 3px;
+    background: orangered;
+    position: absolute;
+    left:0;
+    bottom:0;
+}
+
+
+
+
+
+
+/*section*/
+.section{
+    position: relative;
+    overflow: hidden;
+}
+
+/*Ã§Â¬Â¬Ã¤Â¸â‚¬Ã¥Â±Â*/
+.section:nth-of-type(1){
+    background:url("../img/bg-screen-1.png") no-repeat center;
+    background-size:cover;
+}
+.section:nth-of-type(1) .title{
+    position: absolute;
+    left: 32%;
+    top: 13%;
+    font-size: 34px;
+
+    opacity:0;
+    transform: translate(0,100%);
+}
+
+.section:nth-of-type(1) .title h2 span{
+    color: orangered;
+}
+.section:nth-of-type(1) .phone{
+    background: url("../img/screen-1-phone.png") no-repeat center;
+    position: absolute;
+    left: 13%;
+    top: 36%;
+    width: 1375px;
+    height: 305px;
+    z-index: 2;
+
+    opacity:0;
+    transform: translate(0,-100%);
+}
+.section:nth-of-type(1) .shadow{
+    background: url("../img/screen-1-shadow.png") no-repeat center;
+    position: absolute;
+    left: 14%;
+    top: 45%;
+    width: 1233px;
+    height: 411px;
+
+
+    opacity:0;
+    transform: translate(0,100%);
+}
+.current:nth-of-type(1) .shadow,.current:nth-of-type(1) .phone,.current:nth-of-type(1) .title{
+    transition: all 1s;
+    opacity:1;
+    transform: translate(0,0);
+}
+
+
+
+
+/*第二屏*/
+.section:nth-of-type(2){
+
+}
+.section:nth-of-type(2) .title{
+    position: absolute;
+    left: 28%;
+    top: 9%;
+    width: 676px;
+    height: 164px;
+    text-align: center;
+
+    opacity:0;
+    transform: scale(0);
+}
+.section:nth-of-type(2) .title h2{
+    font-size: 55px;
+    color: orangered;
+    margin-bottom: 20px;
+}
+.section:nth-of-type(2) .title span{
+    color: #000;
+    font-size: 14px;
+}
+.section:nth-of-type(2) .phone{
+    background: url("../img/bg-screen-2.png") no-repeat center;
+    position: absolute;
+    left: 24%;
+    top: 30%;
+    width: 928px;
+    height: 873px;
+    opacity:0;
+    transform: scale(0);
+}
+.current:nth-of-type(2) .phone,.current:nth-of-type(2) .title{
+    opacity:1;
+    transform: scale(1);
+    transition: all 1s ;
+}
+.section:nth-of-type(2) .phone .point1{
+    background: url("../img/icon-point-right.png") no-repeat center;
+    font-size: 22px;
+    position: absolute;
+    left: -11%;
+    top: 23%;
+    width: 100px;
+    height: 30px;
+    padding-right: 237px;
+
+    opacity:0;
+    transform: translate(-100%,0);
+}
+.section:nth-of-type(2) .phone p::before,.section:nth-of-type(2) .phone p::after{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: red;
+    opacity:0.5;
+    position: absolute;
+    display: block;
+    content: '';
+    animation: move 2s infinite;
+}
+.section:nth-of-type(2) .phone .point1::before,.section:nth-of-type(2) .phone .point1::after{
+    right: 114px;
+    top:2px;
+}
+.section:nth-of-type(2) .phone .point2::before,.section:nth-of-type(2) .phone .point2::after,.section:nth-of-type(2) .phone .point3::before,.section:nth-of-type(2) .phone .point3::after{
+    left: 121px;
+    top:2px;
+}
+.section:nth-of-type(2) .phone p::after{
+    background-color: yellowgreen;
+    animation: move 2s infinite 1s;
+}
+@keyframes move {
+    0%,100%{
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(1);
+    }
+}
+.section:nth-of-type(2) .phone .point2,.section:nth-of-type(2) .phone .point3{
+    background: url("../img/icon-point-left.png") no-repeat center;
+    font-size: 22px;
+    position: absolute;
+    top: 16%;
+    right: 8%;
+    width: 100px;
+    height: 30px;
+    padding-left: 249px;
+
+    opacity:0;
+    transform: translate(100%,0);
+}
+.section:nth-of-type(2) .phone .point2{
+    top: 5%;
+    right: 12%;
+}
+.current:nth-of-type(2) .phone .point2,.current:nth-of-type(2) .phone .point1,.current:nth-of-type(2) .phone .point3{
+    opacity:1;
+    transform: translate(0,0);
+    transition: all 1s 1s;
+}
+
+
+
+
+
+/*第三屏*/
+.section:nth-of-type(3){
+    background-color: #a71316;
+}
+.section:nth-of-type(3) .container{
+    margin:auto 70px;
+}
+.section:nth-of-type(3) .title{
+    position: absolute;
+    left: 70px;
+    top: 7%;
+    width: 676px;
+    height: 164px;
+
+    opacity:0;
+    transform: scale(0);
+}
+.section:nth-of-type(3) .title h2{
+    font-size: 55px;
+    color: orangered;
+    margin-bottom: 20px;
+}
+.section:nth-of-type(3) .title span{
+    color: #000;
+    font-size: 14px;
+}
+.section:nth-of-type(3) .desc{
+    width: 286px;
+    height: 286px;
+    position: absolute;
+    left: 4%;
+    top: 33%;
+
+    opacity:0;
+    transform: scale(0);
+}
+.section:nth-of-type(3) .desc .desc-inner{
+    width: 100px;
+    height: 100px;
+    border:1px solid #ffffff;
+    float: left;
+    margin:20px;
+    border-radius: 4px;
+    color: #f1f2f3;
+    /*transform: scale(1);*/
+}
+.section:nth-of-type(3) .desc .desc-inner:hover{
+    transform: scale(1.2);
+    transition: all 1s;
+}
+.section:nth-of-type(3) .desc .desc-inner h3{
+    text-align: center;
+    margin-top: 20px;
+}
+.section:nth-of-type(3) .desc .desc-inner p{
+    text-align: center;
+    margin-top: 10px;
+}
+.section:nth-of-type(3) .phone{
+    background: url("../img/bg-screen-3.png") no-repeat center;
+    position: absolute;
+    left:29%;
+    top:15%;
+    width: 729px;
+    height: 900px;
+
+    opacity:0;
+    transform: translate(0,100%);
+}
+.current:nth-of-type(3) .phone,.current:nth-of-type(3) .title,.current:nth-of-type(3) .desc{
+    transition: all 1s;
+    opacity:1;
+    transform: translate(0,0);
+    transform: scale(1);
+}
+
+
+
+
+/*第四屏*/
+.section:nth-of-type(4){
+
+}
+.section:nth-of-type(4) .title{
+    position: absolute;
+    left: 28%;
+    top: 9%;
+    width: 676px;
+    height: 164px;
+    text-align: center;
+
+    opacity:0;
+    transform: scale(0);
+}
+.current:nth-of-type(4) .title{
+    opacity:1;
+    transform: scale(1);
+    transition: all 1s;
+}
+.section:nth-of-type(4) .title h2{
+    font-size: 55px;
+    color: orangered;
+    margin-bottom: 20px;
+}
+.section:nth-of-type(4) .title span{
+    color: #000;
+    font-size: 14px;
+}
+.section:nth-of-type(4) .phone{
+    width: 1020px;
+    height: 350px;
+    position: absolute;
+    left: 20%;
+    top: 36%;
+}
+.section:nth-of-type(4) .phone div{
+    float: left;
+    width: 240px;
+
+    opacity:0;
+    transform: scale(0);
+}
+.current:nth-of-type(4) .phone div{
+    opacity:1;
+    transform: scale(1);
+}
+.current:nth-of-type(4) .phone div:nth-of-type(1){
+    transition: all 1s .5s;
+}
+.current:nth-of-type(4) .phone div:nth-of-type(2){
+    transition: all 1s 1.5s;
+}
+.current:nth-of-type(4) .phone div:nth-of-type(3){
+    transition: all 1s 2s;
+}
+.current:nth-of-type(4) .phone div:nth-of-type(4){
+    transition: all 1s 2.5s;
+}
+.section:nth-of-type(4) .phone div+div{
+    margin-left: 20px;
+}
+.section:nth-of-type(4) .phone div img{
+    width: 240px;
+    height: 270px;
+}
+.section:nth-of-type(4) .phone div h3{
+    text-align: center;
+    margin-top: 10px;
+    color: #838383;
+}
+.section:nth-of-type(4) .phone div span{
+    text-align: center;
+    display: block;
+    margin: 20px auto;
+    color: #d4d4d4;
+}
+
+
+
+
+
+/*第五屏*/
+.section:nth-of-type(5){
+    background-color: #d9dde1;
+}
+.section:nth-of-type(5) .title{
+    position: absolute;
+    left: 28%;
+    top: 9%;
+    width: 880px;
+    height: 164px;
+    text-align: center;
+
+    opacity:0;
+    transform: scale(0);
+}
+.current:nth-of-type(5) .title{
+    opacity:1;
+    transform: scale(1);
+    transition: all 1s;
+}
+.section:nth-of-type(5) .title h2{
+    font-size: 55px;
+    color: orangered;
+    margin-bottom: 20px;
+}
+.section:nth-of-type(5) .title span{
+    color: #000;
+    font-size: 14px;
+}
+.section:nth-of-type(5) .phone{
+    background: url("../img/bg-screen-5.png") no-repeat center;
+    height: 572px;
+    width: 100%;
+    position: absolute;
+    bottom:-100px;
+
+    opacity:0;
+    transform: translate(0,100%);
+}
+.current:nth-of-type(5) .phone{
+    opacity:1;
+    transform: translate(0,0);
+    transition: all 1s;
+}
+
+
+
+
+
+
+.section:nth-of-type(6){
+
+}
+.section:nth-of-type(6) footer{
+    height: 350px;
+    background: url("../img/bg-screen-buy.png") no-repeat center;
+    background-size:cover;
+}
+.section:nth-of-type(6) footer .btn{
+    width: 185px;
+    height: 75px;
+    border-radius: 4px;
+    background: red;
+    color: #ffffff;
+    position: absolute;
+    left: 42%;
+    top: 25%;
+    text-align: center;
+    line-height: 75px;
+    font-size: 22px;
+}
