@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/jquery.full.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<header>
+    <div class="logo">手机项目</div>
+    <ul id="menu">
+        <li data-menuanchor="firstPage" class="active"><a href="#firstPage">首页</a></li>
+        <li data-menuanchor="secondPage"><a href="#secondPage">外观</a></li>
+        <li data-menuanchor="thirdPage"><a href="#thirdPage">配置</a></li>
+        <li data-menuanchor="fourthPage"><a href="#fourthPage">型号</a></li>
+        <li data-menuanchor="fifthPage"><a href="#fifthPage">说明</a></li>
+        <li data-menuanchor="sixPage" class="BTN"><a href="#sixPage">立即购买</a></li>
+        <div class="nav-list"></div>
+    </ul>
+</header>
+<div class="fullPage" id="fullPage">
+    <div class="section">
+        <div class="title">
+            <h2><span>小米手机</span> 让你的生活更精彩</h2>
+        </div>
+        <div class="phone"></div>
+        <div class="shadow"></div>
+    </div>
+    <div class="section">
+        <div class="title">
+            <h2>优美的设计，更令人着迷</h2>
+            <span>
+                采用受欢迎的设计，让它更加出色。<br>
+            款式小巧、轻便手感更舒适。绚丽高清的显示屏，整个外观显得格外精致
+            </span>
+        </div>
+        <div class="phone">
+            <p class="point1">高清摄像</p>
+            <p class="point2">超薄机身</p>
+            <p class="point3">大屏显示</p>
+        </div>
+    </div>
+    <div class="section">
+        <div class="container">
+            <div class="title">
+                <h2>优美的设计，更令人着迷</h2>
+                <span>
+                    采用受欢迎的设计，让它更加出色。<br>
+                款式小巧、轻便手感更舒适。绚丽高清的显示屏，整个外观显得格外精致
+                </span>
+            </div>
+            <div class="desc">
+                <div class="desc-inner">
+                    <h3>5.7</h3>
+                    <p>英寸大屏</p>
+                </div>
+                <div class="desc-inner">
+                    <h3>5.7</h3>
+                    <p>英寸大屏</p>
+                </div>
+                <div class="desc-inner">
+                    <h3>5.7</h3>
+                    <p>英寸大屏</p>
+                </div>
+                <div class="desc-inner">
+                    <h3>5.7</h3>
+                    <p>英寸大屏</p>
+                </div>
+            </div>
+            <div class="phone"></div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="title">
+            <h2>丰富的手机型号</h2>
+            <span>
+                找到适合你的手机
+            </span>
+        </div>
+        <div class="phone">
+            <div>
+                <img src="img/phone-1.png" alt="">
+                <h3>小米手机</h3>
+                <span>16G/32G/64G</span>
+            </div>
+            <div>
+                <img src="img/phone-2.png" alt="">
+                <h3>小米手机</h3>
+                <span>16G/32G/64G</span>
+            </div>
+            <div>
+                <img src="img/phone-3.png" alt="">
+                <h3>小米手机</h3>
+                <span>16G/32G/64G</span>
+            </div>
+            <div>
+                <img src="img/phone-4.png" alt="">
+                <h3>小米手机</h3>
+                <span>16G/32G/64G</span>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="title">
+            <h2>游戏、学习、拍照、有这一部就够了</h2>
+            <span>
+                看视频、拍摄高清视频与照片、视频聊天、一机多功能，让您生活更丰富精彩。
+            </span>
+        </div>
+        <div class="phone"></div>
+    </div>
+    <div class="section fp-auto-height">
+        <footer>
+            <a href="#" class="btn">点击购买</a>
+        </footer>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.fullPage.min.js"></script>
+<script>
+    var $nav=$('.nav-list');
+    var $li=$('#menu').find('li:not(.lastli)');
+    $('#fullPage').fullpage({
+        verticalCentered:false,
+        navigation:true,
+        navigationPosition:'right',
+        navigationTooltips:['首页','外观','配置','型号','说明'],
+        menu:true,
+        anchors:['firstPage','secondPage','thirdPage','fourthPage','fifthPage','sixPage'],
+        afterRender:function(){
+            $li.eq(0).addClass('active').siblings('li').removeClass('active');
+        },
+        afterLoad:function(item,index){
+            //console.log(arguments)
+            $nav.stop().animate({
+                left:(40+32)*(index-1)
+            });
+            $li.eq(index-1).addClass('active').siblings('li').removeClass('active');
+            if(index<5){
+                $('.section').removeClass('current');
+            }
+            setTimeout(function(){
+                $('.section').eq(index-1).addClass('current');
+            },400)
+        }
+    });
+    for(var i=0; i<5; i++){
+        $('#fullPage').eq(i).css({
+            marginTop:80
+        })
+    }
+    $li.on('mouseover',function(){
+        var index=$(this).index();
+        $nav.stop().animate({
+            left:(40+32)*index
+        });
+    }).on('mouseout',function(){
+        $li.each(function(index,item){
+            if(item.className=='active'){
+                $nav.stop().animate({
+                    left:(40+32)*index
+                });
+            }
+        })
+    })
+</script>
+</body>
+</html>
